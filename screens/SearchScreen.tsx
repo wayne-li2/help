@@ -40,11 +40,23 @@ export default (props: IProps) => {
           rentalUnitKey = childNode.key;
         });
       }.bind(this));
+    
+    if (rentalUnitKey === null) {
+      var newRental = await firebase
+        .database()
+        .ref("rental_units")
+        .push({
+          address: search,
+          average_rating: 0,
+        });
+      
+        rentalUnitKey = newRental.key;
+    }
 
-      console.log(rentalUnitKey);
-      props.navigation.navigate('Listing', {
-        rentalUnitKey: rentalUnitKey,
-      });
+    console.log(rentalUnitKey);
+    props.navigation.navigate('Listing', {
+      rentalUnitKey: rentalUnitKey,
+    });
   }
 
   return (
