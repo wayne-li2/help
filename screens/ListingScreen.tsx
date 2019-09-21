@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text } from 'react-native';
 
 export type IProps = {
   address: string;
 }
 
-export default class ListingReview extends React.Component<IProps> {
+export default (props: IProps) => {
+  const { address } = props;
+  useEffect(() => {
+    console.log(address);
+  }, []);
   
   // componentDidMount() {
   //   await firebase
@@ -22,11 +26,10 @@ export default class ListingReview extends React.Component<IProps> {
   //       });
   //     });
   // }
-  render(): JSX.Element {
-    return (
-      <View>
-        <Text>{this.props.address}</Text>
-      </View>
-    )
-  }
+  
+  return (
+    <View>
+      <Text>{address}</Text>
+    </View>
+  );
 }
