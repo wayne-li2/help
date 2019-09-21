@@ -6,11 +6,14 @@ import ListingScreen from './screens/ListingScreen';
 
 const AppNavigator = createStackNavigator(
   {
-    Main: SearchScreen,
+    Main: {
+      screen: SearchScreen
+    },
     Listing: ListingScreen,
   },
   {
     initialRouteName: 'Main',
+    headerMode: 'none',
   }
 );
 

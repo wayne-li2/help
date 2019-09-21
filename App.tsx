@@ -8,7 +8,8 @@ import AppContainer from './AppNavigator';
 
 
 const Container = styled.View({
-  padding: 10,
+  flex: 1,
+  paddingTop: 10,
 });
 
 
@@ -16,9 +17,8 @@ const Container = styled.View({
 export default function App() {
   initializeFirebase();
   return (
-    <View>
-      <Text>Hello</Text>
+    <Container>
       <AppContainer />
-    </View>
+    </Container>
   );
 }

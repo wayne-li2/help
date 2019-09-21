@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, View } from 'react-native';
+import { Button, View, Text } from 'react-native';
 import { 
   NavigationParams,
   NavigationScreenProp,
@@ -24,7 +24,7 @@ type IProps = {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
-export default () => {
+export default (props: IProps) => {
   const [search, setSearch] = useState<string>("");
 
   const addressSearch = async (): Promise<void> => {
@@ -42,7 +42,7 @@ export default () => {
       }.bind(this));
 
       console.log(rentalUnitKey);
-      // props.navigation.navigate('ListingScreen');
+      props.navigation.navigate('Listing');
   }
 
   return (
