@@ -29,6 +29,7 @@ export default (props: IProps) => {
     loadFirebase();
   }, []);
 
+  console.log(rentalUnitKey);
   return (
     <View>
       <Text>Hi!</Text>
