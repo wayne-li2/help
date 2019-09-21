@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SearchScreen from './screens/SearchScreen';
+import { initializeFirebase } from './util/firebase/initFirebase';
 
 export default function App() {
+  initializeFirebase();
   return (
     <SearchScreen/>
   );

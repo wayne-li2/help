@@ -1,16 +1,40 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 
+import * as firebase from 'firebase';
+
 export default () => {
-  const [search, setSearch] = useState<string>("Type Here...");
+  const [search, setSearch] = useState<string>("");
+
+  const addressSearch = async (): Promise<void> => {
+    var rentalUnitKey = null;
+    await firebase
+      .database()
+      .ref("rental_units")
+      .orderByChild("address")
+      .equalTo(search)
+      .once('value')
+      .then(function(data) {
+        data.forEach(function(childNode) {
+          rentalUnitKey = childNode.key;
+        });
+      }.bind(this));
+
+      console.log(rentalUnitKey);
+  }
 
   return (
     <View style={styles.contentContainer}>
       <Text style={styles.titleText}>Search</Text>
       <SearchBar
+        placeholder="Type Here..."
         onChangeText={setSearch}
         value={search}
+      />
+      <Button
+          title="Press me"
+          onPress={addressSearch}
       />
     </View>
   );
