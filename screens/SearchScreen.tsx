@@ -41,7 +41,6 @@ export default (props: IProps) => {
         });
       }.bind(this));
 
-      console.log(rentalUnitKey);
       props.navigation.navigate('Listing', {
         rentalUnitKey: rentalUnitKey,
       });
