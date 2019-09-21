@@ -1,18 +1,21 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
+import screen from './ScreenUtils';
+
 import SearchScreen from './screens/SearchScreen';
 import ListingScreen from './screens/ListingScreen';
 
+
 const AppNavigator = createStackNavigator(
   {
-    Main: {
-      screen: SearchScreen
+    Search: {
+      screen: screen(SearchScreen),
     },
-    Listing: ListingScreen,
+    Listing: screen(ListingScreen),
   },
   {
-    initialRouteName: 'Main',
+    initialRouteName: 'Search',
     headerMode: 'none',
   }
 );
