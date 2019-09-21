@@ -5,5 +5,7 @@ export type Review = {
   neighborRating: number;
   startDate: Date;
   endDate: Date;
-  
-}
+  startingRentalAmountDollars: number;
+  endingRentalAmountDollars: number;
+  description: string;
+};
