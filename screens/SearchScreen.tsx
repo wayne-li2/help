@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { Button, View } from 'react-native';
+import { 
+  NavigationParams,
+  NavigationScreenProp,
+  NavigationState,
+} from 'react-navigation';
 import { SearchBar } from 'react-native-elements';
 
 import styled from '@emotion/native';
@@ -14,6 +19,10 @@ const TitleText = styled.Text({
   textAlign: 'left',
   justifyContent: 'flex-start',
 });
+
+type IProps = {
+  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+}
 
 export default () => {
   const [search, setSearch] = useState<string>("");
@@ -33,6 +42,7 @@ export default () => {
       }.bind(this));
 
       console.log(rentalUnitKey);
+      // props.navigation.navigate('ListingScreen');
   }
 
   return (
