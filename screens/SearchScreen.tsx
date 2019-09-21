@@ -7,18 +7,9 @@ import {
 } from 'react-navigation';
 import { SearchBar } from 'react-native-elements';
 
-import styled from '@emotion/native';
 import * as firebase from 'firebase';
 
-const TitleText = styled.Text({
-  color: '#4d4d4d',
-  paddingTop: 30,
-  paddingLeft: 10,
-  fontSize: 32,
-  fontWeight: 'bold',
-  textAlign: 'left',
-  justifyContent: 'flex-start',
-});
+import { TitleText } from '../style/Styles';
 
 type IProps = {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
