@@ -53,7 +53,6 @@ export default (props: IProps) => {
         rentalUnitKey = newRental.key;
     }
 
-    console.log(rentalUnitKey);
     props.navigation.navigate('Listing', {
       rentalUnitKey: rentalUnitKey,
     });
