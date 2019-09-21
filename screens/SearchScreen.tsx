@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, View } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 
+import styled from '@emotion/native';
 import * as firebase from 'firebase';
+
+const TitleText = styled.Text({
+  color: '#4d4d4d',
+  paddingTop: 30,
+  paddingLeft: 10,
+  fontSize: 32,
+  fontWeight: 'bold',
+  textAlign: 'left',
+  justifyContent: 'flex-start',
+});
 
 export default () => {
   const [search, setSearch] = useState<string>("");
@@ -25,8 +36,8 @@ export default () => {
   }
 
   return (
-    <View style={styles.contentContainer}>
-      <Text style={styles.titleText}>Search</Text>
+    <View>
+      <TitleText>Search</TitleText>
       <SearchBar
         placeholder="Type Here..."
         onChangeText={setSearch}
@@ -39,31 +50,3 @@ export default () => {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  contentContainer: {
-    padding: 10,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  view: {
-    position: 'absolute',
-    backgroundColor: 'transparent'
-  },
-  titleText: {
-    color: '#4d4d4d',
-    paddingTop: 30,
-    paddingLeft: 10,
-    fontSize: 32,
-    fontWeight: 'bold',
-    textAlign: 'left',
-    justifyContent: 'flex-start',
-  },
-});

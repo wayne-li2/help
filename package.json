@@ -8,11 +8,14 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.17",
+    "@emotion/native": "^10.0.14",
     "expo": "^35.0.0",
     "firebase": "^6.6.2",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+    "react-native-elements": "^1.2.1",
     "react-native-web": "^0.11.7"
   },
   "devDependencies": {
