@@ -1,12 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import ListingScreen from './screens/ListingScreen';
+import SearchScreen from './screens/SearchScreen';
 
 export default function App() {
   return (
-    <ListingScreen
-      address={'123 Main St'}
-    />
+    <SearchScreen/>
   );
 }
 
