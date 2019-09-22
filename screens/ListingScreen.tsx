@@ -1,16 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+import styled, { css } from '@emotion/native';
+import { 
+  NavigationParams,
+  NavigationScreenProp,
+  NavigationState,
+} from 'react-navigation';
 
 import * as firebase from 'firebase';
 
+// import TextButton from '../components/TextButton';
 import ListingReview, { Review } from '../components/ListingReview';
+import { BaseContainer } from '../style/Styles';
 
 type IProps = {
   rentalUnitKey: string;
+  navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
+const Reviews = styled.View({
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100%',
+});
+
+const backButtonStyle = css`
+  
+`;
+
 export default (props: IProps) => {
-  const { rentalUnitKey } = props;
+  const { rentalUnitKey, navigation } = props;
   const [reviews, setReviews] = useState<Array<Review>>([]);
   
   const loadReviews = async (): Promise<void> => {
@@ -39,18 +57,25 @@ export default (props: IProps) => {
       });
     setReviews(reviews);
   }
+
   useEffect(() => {
     loadReviews();
   }, []);
 
 
   return (
-    <View>
-      {
-        reviews.map((review) => {
-          return <ListingReview key={review.name} review={review}/>;
-        })
-      }
-    </View>
+    <BaseContainer>
+      {/* <TextButton 
+        text={'back'}
+        onPress={() => navigation.goBack()}
+      /> */}
+      <Reviews>
+        {
+          reviews.map((review) => {
+            return <ListingReview key={review.name} review={review}/>;
+          })
+        }
+      </Reviews>
+    </BaseContainer>
   );
 }
