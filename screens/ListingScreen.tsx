@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
 
 import * as firebase from 'firebase';
 
 import ListingReview, { Review } from '../components/ListingReview';
+import { BaseContainer } from '../style/Styles';
 
 type IProps = {
   rentalUnitKey: string;
@@ -45,12 +45,12 @@ export default (props: IProps) => {
 
 
   return (
-    <View>
+    <BaseContainer>
       {
         reviews.map((review) => {
           return <ListingReview key={review.name} review={review}/>;
         })
       }
-    </View>
+    </BaseContainer>
   );
 }

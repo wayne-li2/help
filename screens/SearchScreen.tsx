@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, View, Text } from 'react-native';
+import { Button } from 'react-native';
 import { 
   NavigationParams,
   NavigationScreenProp,
@@ -9,7 +9,7 @@ import { SearchBar } from 'react-native-elements';
 
 import * as firebase from 'firebase';
 
-import { TitleText } from '../style/Styles';
+import { BaseContainer, TitleText } from '../style/Styles';
 
 type IProps = {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
@@ -50,7 +50,7 @@ export default (props: IProps) => {
   }
 
   return (
-    <View>
+    <BaseContainer>
       <TitleText>Search</TitleText>
       <SearchBar
         placeholder="Type Here..."
@@ -61,6 +61,6 @@ export default (props: IProps) => {
           title="Press me"
           onPress={addressSearch}
       />
-    </View>
+    </BaseContainer>
   );
 }
